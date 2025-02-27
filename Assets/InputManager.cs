@@ -21,6 +21,10 @@ public class InputManager : MonoBehaviour
         {
             input += Vector2.up;
         }
+        if (Input.GetKey(KeyCode.S))
+        {
+            input += Vector2.down;
+        }
         OnMove?.Invoke(input);
 
         if (Input.GetKeyDown(KeyCode.Space))

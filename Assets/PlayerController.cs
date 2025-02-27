@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CinemachineCamera freeLookCamera;
     private Rigidbody rb;
     private bool isGrounded = false;
-    
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
