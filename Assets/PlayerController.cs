@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputManager inputManager;
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpCount = 0;
     [SerializeField] private CinemachineCamera freeLookCamera;
     private Rigidbody rb;
     private bool isGrounded = false;
@@ -30,22 +31,23 @@ public class PlayerController : MonoBehaviour
 
     void jumpPlayer()
     {
-        if (isGrounded) {
+        if (jumpCount < 2) {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            jumpCount += 1;
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground")) {
-            isGrounded = true;
+            jumpCount = 0;
         }
     }
 
     void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground")) {
-            isGrounded = false;
+
         }
     }
 }
