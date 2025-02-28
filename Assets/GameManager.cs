@@ -1,8 +1,11 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float score = 0;
+    [SerializeField] private TextMeshProUGUI scoreText;
     private Coin[] coins;
 
     void Start()
