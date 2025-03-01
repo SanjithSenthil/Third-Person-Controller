@@ -1076,6 +1076,8 @@ MonoBehaviour:
   inputManager: {fileID: 1590939193}
   speed: 3
   jumpForce: 5
+  jumpCount: 0
+  dashSpeed: 15
   freeLookCamera: {fileID: 811347173}
 --- !u!1001 &1222992595
 PrefabInstance:
@@ -1482,6 +1484,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnJump:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDash:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1590939194

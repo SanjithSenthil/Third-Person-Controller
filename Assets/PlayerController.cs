@@ -7,15 +7,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCount = 0;
+    [SerializeField] private float dashSpeed;
     [SerializeField] private CinemachineCamera freeLookCamera;
     private Rigidbody rb;
-    private bool isGrounded = false;
+    private bool canDash = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         inputManager.OnMove.AddListener(movePlayer);
         inputManager.OnJump.AddListener(jumpPlayer);
+        inputManager.OnDash.AddListener(dashPlayer);
     }
 
     void movePlayer(Vector2 direction)
@@ -34,6 +36,16 @@ public class PlayerController : MonoBehaviour
         if (jumpCount < 2) {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             jumpCount += 1;
+            canDash = true;
+        }
+    }
+
+    void dashPlayer()
+    {
+        if (canDash) {
+            Vector3 dashDirection = freeLookCamera.transform.forward;
+            rb.linearVelocity = new Vector3(dashDirection.x * dashSpeed, rb.linearVelocity.y, dashDirection.z * dashSpeed);
+            canDash = false;
         }
     }
 
@@ -41,13 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground")) {
             jumpCount = 0;
-        }
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground")) {
-
+            canDash = false;
         }
     }
 }

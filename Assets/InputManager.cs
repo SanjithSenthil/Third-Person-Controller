@@ -5,6 +5,7 @@ public class InputManager : MonoBehaviour
 {
     public UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>();
     public UnityEvent OnJump = new UnityEvent();
+    public UnityEvent OnDash = new UnityEvent();
 
     void Update()
     {
@@ -30,6 +31,11 @@ public class InputManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             OnJump?.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightShift))
+        {
+            OnDash?.Invoke();
         }
     }
 }
