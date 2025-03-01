@@ -550,7 +550,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553076139}
-  m_Material: {fileID: 13400000, guid: 4987e8ba729bb4ef1b97c6705ffe56bb, type: 2}
+  m_Material: {fileID: 13400000, guid: be4311d305f154833877e72c7cc9bc94, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1773,6 +1773,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 56623e39001d543b487184c6e68a89da, type: 2}
+    - target: {fileID: 1876291743685061440, guid: 2d5f857088a9341af96cdfef399809a2, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7093916138314779824, guid: 2d5f857088a9341af96cdfef399809a2, type: 3}
       propertyPath: m_Name
       value: Box (1)

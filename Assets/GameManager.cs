@@ -19,6 +19,6 @@ public class GameManager : MonoBehaviour
     private void IncrementScore()
     {
         score++;
-        Debug.Log("Score: " + score);
+        scoreText.text = $"Score: {score}";
     }
 }
